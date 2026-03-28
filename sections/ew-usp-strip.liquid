@@ -1,0 +1,63 @@
+<!-- EveryWear: USP Strip Section -->
+<section class="py-6 border-y" style="background-color: #1a1c1c; border-color: rgba(156,63,0,0.25);">
+  <div class="max-w-screen-2xl mx-auto px-8">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 ew-stagger">
+      {%- for block in section.blocks -%}
+        <div
+          class="ew-reveal flex items-center space-x-4 group"
+          {{ block.shopify_attributes }}
+        >
+          <span
+            class="material-symbols-outlined transition-transform duration-300 group-hover:scale-110"
+            style="color: #9c3f00; font-size: 2rem;"
+          >
+            {{- block.settings.icon -}}
+          </span>
+          <span class="text-white font-label text-sm uppercase font-bold tracking-wider transition-colors duration-300 group-hover:text-[#ffb693]">
+            {{ block.settings.label }}
+          </span>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "EW USP Strip",
+  "tag": "section",
+  "max_blocks": 8,
+  "blocks": [
+    {
+      "type": "usp_item",
+      "name": "USP Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Material Symbol Icon Name",
+          "default": "print",
+          "info": "Use a Material Symbols icon name, e.g. print, local_shipping, timer"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "In-House Printing"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "EW USP Strip",
+      "blocks": [
+        { "type": "usp_item", "settings": { "icon": "print", "label": "In-House Printing" } },
+        { "type": "usp_item", "settings": { "icon": "inventory_2", "label": "Bulk Pricing Available" } },
+        { "type": "usp_item", "settings": { "icon": "local_shipping", "label": "Australia-Wide Shipping" } },
+        { "type": "usp_item", "settings": { "icon": "timer", "label": "Fast Turnaround" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

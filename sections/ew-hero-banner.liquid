@@ -1,0 +1,188 @@
+<!-- EveryWear: Hero Banner Section -->
+<section class="relative w-full flex items-center bg-[#1a1c1c] overflow-hidden" style="height: {{ section.settings.height }}px;">
+
+  <!-- Parallax background -->
+  <div class="absolute inset-0 ew-hero-parallax" style="will-change: transform;">
+    {%- if section.settings.background_image != blank -%}
+      <img
+        src="{{ section.settings.background_image | image_url: width: 1920 }}"
+        alt="{{ section.settings.background_image.alt | escape }}"
+        class="w-full h-full object-cover"
+        style="opacity: {{ section.settings.image_opacity | divided_by: 100.0 }}; transform-origin: center top;"
+        loading="eager"
+        fetchpriority="high"
+        width="{{ section.settings.background_image.width }}"
+        height="{{ section.settings.background_image.height }}"
+      >
+    {%- else -%}
+      <div class="w-full h-full" style="background-color: #2a2c2c; opacity: {{ section.settings.image_opacity | divided_by: 100.0 }};"></div>
+    {%- endif -%}
+  </div>
+
+  <!-- Gradient vignette overlay -->
+  <div class="absolute inset-0" style="background: linear-gradient(to right, rgba(26,28,28,0.75) 0%, rgba(26,28,28,0.2) 70%, transparent 100%);"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 px-8 md:px-24 max-w-5xl">
+    <p class="ew-reveal font-label text-sm uppercase tracking-[0.35em] font-bold mb-6" style="color: #ffb693; transition-delay: 0ms;">
+      {{- section.settings.eyebrow -}}
+    </p>
+    <h1 class="ew-reveal font-headline font-black text-6xl md:text-8xl text-white tracking-tighter mb-6 uppercase leading-tight" style="transition-delay: 80ms;">
+      {{ section.settings.heading_line_1 }}
+      {%- if section.settings.heading_line_2 != blank -%}
+        <br><span style="color: #c45100;">{{ section.settings.heading_line_2 }}</span>
+      {%- endif -%}
+    </h1>
+    {%- if section.settings.subheading != blank -%}
+      <p class="ew-reveal font-label text-lg md:text-xl mb-10 tracking-widest uppercase" style="color: #e3e2e2; transition-delay: 160ms;">
+        {{ section.settings.subheading }}
+      </p>
+    {%- endif -%}
+    <div class="ew-reveal flex flex-wrap gap-4" style="transition-delay: 240ms;">
+      {%- if section.settings.btn1_label != blank -%}
+        <a
+          href="{{ section.settings.btn1_link }}"
+          class="ew-btn-shimmer ew-magnetic inline-block font-headline font-bold uppercase py-4 px-10 tracking-tight transition-all duration-300"
+          style="background-color: #faf9f9; color: #1a1c1c;"
+          onmouseover="this.style.backgroundColor='#e3e2e2'"
+          onmouseout="this.style.backgroundColor='#faf9f9'"
+        >
+          {{ section.settings.btn1_label }}
+        </a>
+      {%- endif -%}
+      {%- if section.settings.btn2_label != blank -%}
+        <a
+          href="{{ section.settings.btn2_link }}"
+          class="ew-btn-shimmer ew-magnetic inline-block font-headline font-bold uppercase py-4 px-10 tracking-tight transition-all duration-300"
+          style="background-color: #9c3f00; color: #ffffff;"
+          onmouseover="this.style.backgroundColor='#c45100'"
+          onmouseout="this.style.backgroundColor='#9c3f00'"
+        >
+          {{ section.settings.btn2_label }}
+        </a>
+      {%- endif -%}
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 ew-reveal" style="transition-delay: 500ms;">
+    <span class="font-label text-xs uppercase tracking-[0.3em]" style="color: rgba(255,255,255,0.5);">Scroll</span>
+    <div class="w-px h-10 overflow-hidden" style="background: rgba(255,255,255,0.15);">
+      <div style="width:1px; height:100%; background:#9c3f00; animation: scrollLine 1.6s ease-in-out infinite;"></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes scrollLine {
+    0%   { transform: translateY(-100%); }
+    100% { transform: translateY(200%); }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "EW Hero Banner",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "range",
+      "id": "height",
+      "min": 400,
+      "max": 1000,
+      "step": 10,
+      "unit": "px",
+      "label": "Section Height",
+      "default": 870
+    },
+    {
+      "type": "range",
+      "id": "image_opacity",
+      "min": 10,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Image Opacity",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow Text (above heading)",
+      "default": "Australia's Custom Workwear Specialist"
+    },
+    {
+      "type": "text",
+      "id": "heading_line_1",
+      "label": "Heading Line 1",
+      "default": "Your Brand."
+    },
+    {
+      "type": "text",
+      "id": "heading_line_2",
+      "label": "Heading Line 2 (accent colour)",
+      "default": "On Everything."
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading / Tagline",
+      "default": "In-house printing · Bulk pricing · Fast turnaround · Australia-wide"
+    },
+    {
+      "type": "header",
+      "content": "Button 1"
+    },
+    {
+      "type": "text",
+      "id": "btn1_label",
+      "label": "Button 1 Label",
+      "default": "Shop All Products"
+    },
+    {
+      "type": "url",
+      "id": "btn1_link",
+      "label": "Button 1 Link"
+    },
+    {
+      "type": "header",
+      "content": "Button 2"
+    },
+    {
+      "type": "text",
+      "id": "btn2_label",
+      "label": "Button 2 Label",
+      "default": "Get a Quote"
+    },
+    {
+      "type": "url",
+      "id": "btn2_link",
+      "label": "Button 2 Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "EW Hero Banner",
+      "settings": {
+        "eyebrow": "Australia's Custom Workwear Specialist",
+        "heading_line_1": "Your Brand.",
+        "heading_line_2": "On Everything.",
+        "subheading": "In-house printing · Bulk pricing · Fast turnaround · Australia-wide",
+        "btn1_label": "Shop All Products",
+        "btn2_label": "Get a Quote",
+        "height": 870,
+        "image_opacity": 60
+      }
+    }
+  ]
+}
+{% endschema %}

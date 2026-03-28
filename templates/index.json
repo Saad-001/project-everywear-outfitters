@@ -1,0 +1,368 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "ew-hero-banner": {
+      "type": "ew-hero-banner",
+      "settings": {
+        "background_image": "shopify://shop_images/unnamed_29.png",
+        "height": 870,
+        "image_opacity": 60,
+        "heading_line_1": "Your Brand.",
+        "heading_line_2": "On Everything.",
+        "subheading": "In-house printing · Bulk pricing · Fast turnaround · Australia-wide",
+        "btn1_label": "Shop All Products",
+        "btn1_link": "/collections/all",
+        "btn2_label": "Get a Quote",
+        "btn2_link": "/pages/contact"
+      }
+    },
+    "ew-usp-strip": {
+      "type": "ew-usp-strip",
+      "blocks": {
+        "usp-1": {
+          "type": "usp_item",
+          "settings": {
+            "icon": "print",
+            "label": "In-House Printing"
+          }
+        },
+        "usp-2": {
+          "type": "usp_item",
+          "settings": {
+            "icon": "inventory_2",
+            "label": "Bulk Pricing Available"
+          }
+        },
+        "usp-3": {
+          "type": "usp_item",
+          "settings": {
+            "icon": "local_shipping",
+            "label": "Australia-Wide Shipping"
+          }
+        },
+        "usp-4": {
+          "type": "usp_item",
+          "settings": {
+            "icon": "timer",
+            "label": "Fast Turnaround"
+          }
+        }
+      },
+      "block_order": [
+        "usp-1",
+        "usp-2",
+        "usp-3",
+        "usp-4"
+      ],
+      "settings": {}
+    },
+    "ew-category-grid": {
+      "type": "ew-category-grid",
+      "blocks": {
+        "cat-1": {
+          "type": "category_tile",
+          "settings": {
+            "image": "shopify://shop_images/unnamed.png",
+            "label": "T-Shirts",
+            "link": "/collections/t-shirts"
+          }
+        },
+        "cat-2": {
+          "type": "category_tile",
+          "settings": {
+            "image": "shopify://shop_images/unnamed_1.png",
+            "label": "Singlets",
+            "link": "/collections/singlets"
+          }
+        },
+        "cat-3": {
+          "type": "category_tile",
+          "settings": {
+            "image": "shopify://shop_images/unnamed_2.png",
+            "label": "Hoodies",
+            "link": "/collections/hoodies"
+          }
+        },
+        "cat-4": {
+          "type": "category_tile",
+          "settings": {
+            "image": "shopify://shop_images/unnamed_3.png",
+            "label": "Polos",
+            "link": "/collections/polos"
+          }
+        },
+        "cat-5": {
+          "type": "category_tile",
+          "settings": {
+            "image": "shopify://shop_images/unnamed_4.png",
+            "label": "Work Shirts",
+            "link": "/collections/work-shirts"
+          }
+        },
+        "cat-6": {
+          "type": "category_tile",
+          "settings": {
+            "image": "shopify://shop_images/unnamed_5.png",
+            "label": "Headwear",
+            "link": "/collections/headwear"
+          }
+        },
+        "cat-7": {
+          "type": "category_tile",
+          "settings": {
+            "image": "shopify://shop_images/unnamed_6.png",
+            "label": "Hi-Vis",
+            "link": "/collections/hi-vis"
+          }
+        },
+        "cat-8": {
+          "type": "category_tile",
+          "settings": {
+            "image": "shopify://shop_images/unnamed_7.png",
+            "label": "DTF Film Rolls",
+            "link": "/collections/dtf-film-rolls"
+          }
+        },
+        "cat-9": {
+          "type": "category_tile",
+          "settings": {
+            "image": "shopify://shop_images/unnamed_8.png",
+            "label": "Custom Orders",
+            "link": "/pages/custom-orders"
+          }
+        }
+      },
+      "block_order": [
+        "cat-1",
+        "cat-2",
+        "cat-3",
+        "cat-4",
+        "cat-5",
+        "cat-6",
+        "cat-7",
+        "cat-8",
+        "cat-9"
+      ],
+      "settings": {
+        "heading": "The Essentials"
+      }
+    },
+    "ew-featured-products": {
+      "type": "ew-featured-products",
+      "blocks": {
+        "prod-1": {
+          "type": "product_card",
+          "settings": {
+            "product": "",
+            "custom_image": "shopify://shop_images/unnamed_9.png",
+            "product_name": "AS Colour Staple Tee",
+            "price": "$18.50",
+            "compare_price": "$24.00",
+            "badge": "Best Seller",
+            "btn_label": "Add Logo",
+            "btn_link": "/collections/t-shirts"
+          }
+        },
+        "prod-2": {
+          "type": "product_card",
+          "settings": {
+            "product": "",
+            "custom_image": "shopify://shop_images/unnamed_10.png",
+            "product_name": "JBs Hi-Vis Polo",
+            "price": "$22.00",
+            "compare_price": "",
+            "badge": "Safety Rated",
+            "btn_label": "Add Logo",
+            "btn_link": "/collections/hi-vis"
+          }
+        },
+        "prod-3": {
+          "type": "product_card",
+          "settings": {
+            "product": "",
+            "custom_image": "shopify://shop_images/unnamed_11.png",
+            "product_name": "AS Colour Supply Hoodie",
+            "price": "$45.00",
+            "compare_price": "",
+            "badge": "Premium Fit",
+            "btn_label": "Add Logo",
+            "btn_link": "/collections/hoodies"
+          }
+        },
+        "prod-4": {
+          "type": "product_card",
+          "settings": {
+            "product": "",
+            "custom_image": "shopify://shop_images/unnamed_12.png",
+            "product_name": "Tradie Work Shirt",
+            "price": "$38.00",
+            "compare_price": "",
+            "badge": "Indestructible",
+            "btn_label": "Add Logo",
+            "btn_link": "/collections/work-shirts"
+          }
+        }
+      },
+      "block_order": [
+        "prod-1",
+        "prod-2",
+        "prod-3",
+        "prod-4"
+      ],
+      "settings": {
+        "heading": "Most Popular Garments",
+        "subheading": "Selected for durability and print quality"
+      }
+    },
+    "ew-how-it-works": {
+      "type": "ew-how-it-works",
+      "blocks": {
+        "step-1": {
+          "type": "step",
+          "settings": {
+            "step_number": "01",
+            "icon": "apparel",
+            "step_title": "Pick Your Garment",
+            "step_description": "Browse our massive range of premium basics and industrial workwear."
+          }
+        },
+        "step-2": {
+          "type": "step",
+          "settings": {
+            "step_number": "02",
+            "icon": "upload_file",
+            "step_title": "Upload Your Logo",
+            "step_description": "Upload your PDF or high-res PNG. Our team checks every file for precision."
+          }
+        },
+        "step-3": {
+          "type": "step",
+          "settings": {
+            "step_number": "03",
+            "icon": "precision_manufacturing",
+            "step_title": "We Print & Deliver",
+            "step_description": "In-house industrial printing with rapid turnaround Australia-wide."
+          }
+        }
+      },
+      "block_order": [
+        "step-1",
+        "step-2",
+        "step-3"
+      ],
+      "settings": {
+        "heading": "Engineered For Ease"
+      }
+    },
+    "ew-bulk-cta": {
+      "type": "ew-bulk-cta",
+      "settings": {
+        "heading": "Ordering 100+ items?\nWe've got you covered.",
+        "subheading": "Get a custom quote tailored to your order requirements.",
+        "btn_label": "Request a Quote",
+        "btn_link": "/pages/contact"
+      }
+    },
+    "ew-dtf-callout": {
+      "type": "ew-dtf-callout",
+      "settings": {
+        "image": "shopify://shop_images/unnamed_13.png",
+        "layout": "image_left",
+        "heading": "Pro-Grade\nDTF Film Rolls",
+        "description": "The same high-durability film we use in-house, now available for your production line. Industrial precision, vibrant color reproduction, and effortless peel.",
+        "btn_label": "Shop Now",
+        "btn_link": "/collections/dtf-film-rolls"
+      }
+    },
+    "ew-instagram-feed": {
+      "type": "ew-instagram-feed",
+      "blocks": {
+        "img-1": {
+          "type": "feed_image",
+          "settings": {
+            "image": "shopify://shop_images/unnamed_14.png",
+            "link": ""
+          }
+        },
+        "img-2": {
+          "type": "feed_image",
+          "settings": {
+            "image": "shopify://shop_images/unnamed_15.png",
+            "link": ""
+          }
+        },
+        "img-3": {
+          "type": "feed_image",
+          "settings": {
+            "image": "shopify://shop_images/unnamed_16.png",
+            "link": ""
+          }
+        },
+        "img-4": {
+          "type": "feed_image",
+          "settings": {
+            "image": "shopify://shop_images/unnamed_17.png",
+            "link": ""
+          }
+        },
+        "img-5": {
+          "type": "feed_image",
+          "settings": {
+            "image": "shopify://shop_images/unnamed_18.png",
+            "link": ""
+          }
+        },
+        "img-6": {
+          "type": "feed_image",
+          "settings": {
+            "image": "shopify://shop_images/unnamed_19.png",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "img-1",
+        "img-2",
+        "img-3",
+        "img-4",
+        "img-5",
+        "img-6"
+      ],
+      "settings": {
+        "hashtag": "#EveryWearInAction",
+        "heading": "",
+        "cta_label": "",
+        "cta_link": ""
+      }
+    },
+    "ew-newsletter": {
+      "type": "ew-newsletter",
+      "settings": {
+        "heading": "Join the EveryWear club",
+        "subheading": "Get new styles, print tips, and exclusive deals delivered to your inbox.",
+        "placeholder": "Enter your email",
+        "btn_label": "Join Now",
+        "success_message": "Thanks for subscribing!"
+      }
+    }
+  },
+  "order": [
+    "ew-hero-banner",
+    "ew-usp-strip",
+    "ew-category-grid",
+    "ew-featured-products",
+    "ew-how-it-works",
+    "ew-bulk-cta",
+    "ew-dtf-callout",
+    "ew-instagram-feed",
+    "ew-newsletter"
+  ]
+}

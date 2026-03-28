@@ -1,0 +1,114 @@
+<!-- EveryWear: Newsletter Signup -->
+<section class="py-20 border-t" style="border-color: #e9e8e8; background-color: #faf9f9;">
+  <div class="max-w-4xl mx-auto px-8 text-center">
+
+    <h2 class="ew-reveal font-headline font-black text-2xl uppercase tracking-tight mb-4" style="color: #1a1c1c;">
+      {{ section.settings.heading }}
+    </h2>
+
+    {%- if section.settings.subheading != blank -%}
+      <p class="ew-reveal mb-8" style="color: #5e5e5e; transition-delay: 80ms;">
+        {{ section.settings.subheading }}
+      </p>
+    {%- endif -%}
+
+    <div class="ew-reveal" style="transition-delay: 160ms;">
+      {%- form 'customer', id: 'ew-newsletter-form' -%}
+        <input type="hidden" name="contact[tags]" value="newsletter">
+
+        {%- if form.posted_successfully? -%}
+          <p class="font-label uppercase tracking-widest text-sm font-bold mb-4" style="color: #9c3f00;">
+            {{ section.settings.success_message }}
+          </p>
+        {%- endif -%}
+
+        {%- if form.errors -%}
+          <p class="text-red-600 font-label uppercase text-sm mb-4">{{ form.errors | default_errors }}</p>
+        {%- endif -%}
+
+        <div class="flex flex-col md:flex-row gap-0 shadow-xl shadow-black/5 max-w-xl mx-auto">
+          <input
+            type="email"
+            name="contact[email]"
+            required
+            placeholder="{{ section.settings.placeholder | upcase }}"
+            class="flex-grow border-none p-4 font-label uppercase text-sm focus:ring-2 focus:outline-none"
+            style="background-color: #e9e8e8; color: #1a1c1c; --tw-ring-color: #9c3f00;"
+            aria-label="{{ section.settings.placeholder }}"
+          >
+          <button
+            type="submit"
+            class="ew-btn-shimmer font-headline font-bold uppercase px-10 py-4 flex-shrink-0 transition-all duration-300 text-white"
+            style="background-color: #1a1c1c;"
+            onmouseover="this.style.backgroundColor='#9c3f00'; this.style.letterSpacing='0.08em';"
+            onmouseout="this.style.backgroundColor='#1a1c1c'; this.style.letterSpacing='';"
+          >
+            {{ section.settings.btn_label }}
+          </button>
+        </div>
+      {%- endform -%}
+
+      {%- if section.settings.privacy_note != blank -%}
+        <p class="mt-4 text-xs" style="color: #8c7166;">{{ section.settings.privacy_note }}</p>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "EW Newsletter",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Join the EveryWear club"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Get new styles, print tips, and exclusive deals delivered to your inbox."
+    },
+    {
+      "type": "text",
+      "id": "placeholder",
+      "label": "Input Placeholder",
+      "default": "Enter your email"
+    },
+    {
+      "type": "text",
+      "id": "btn_label",
+      "label": "Button Label",
+      "default": "Join Now"
+    },
+    {
+      "type": "text",
+      "id": "success_message",
+      "label": "Success Message",
+      "default": "Thanks for subscribing!"
+    },
+    {
+      "type": "text",
+      "id": "privacy_note",
+      "label": "Privacy Note (optional)",
+      "default": "No spam. Unsubscribe anytime."
+    }
+  ],
+  "presets": [
+    {
+      "name": "EW Newsletter",
+      "settings": {
+        "heading": "Join the EveryWear club",
+        "subheading": "Get new styles, print tips, and exclusive deals delivered to your inbox.",
+        "placeholder": "Enter your email",
+        "btn_label": "Join Now",
+        "success_message": "Thanks for subscribing!",
+        "privacy_note": "No spam. Unsubscribe anytime."
+      }
+    }
+  ]
+}
+{% endschema %}

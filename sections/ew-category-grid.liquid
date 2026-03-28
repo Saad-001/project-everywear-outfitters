@@ -1,0 +1,118 @@
+<!-- EveryWear: Category Grid — "The Essentials" -->
+<section class="py-24 px-8 max-w-screen-2xl mx-auto">
+
+  <!-- Header -->
+  <div class="flex justify-between items-end mb-12">
+    <h2 class="ew-reveal font-headline font-black text-5xl uppercase tracking-tighter" style="color: #1a1c1c;">
+      {{ section.settings.heading }}
+    </h2>
+    <div class="ew-reveal h-1 w-24 mb-3" style="background-color: #9c3f00; transition-delay: 150ms;"></div>
+  </div>
+
+  <!-- Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-1">
+    {%- for block in section.blocks -%}
+      <a
+        href="{{ block.settings.link | default: '#' }}"
+        class="ew-reveal-scale relative group aspect-square overflow-hidden cursor-pointer block"
+        style="background-color: #efeeed; transition-delay: {{ forloop.index0 | times: 70 }}ms;"
+        {{ block.shopify_attributes }}
+      >
+        <!-- Image with grayscale + zoom on hover -->
+        {%- if block.settings.image != blank -%}
+          <img
+            src="{{ block.settings.image | image_url: width: 800 }}"
+            alt="{{ block.settings.image.alt | default: block.settings.label | escape }}"
+            class="w-full h-full object-cover transition-all duration-700"
+            style="filter: grayscale(100%); transform: scale(1.0);"
+            loading="lazy"
+            onmouseover="this.style.filter='grayscale(0%)'; this.style.transform='scale(1.07)';"
+            onmouseout="this.style.filter='grayscale(100%)'; this.style.transform='scale(1.0)';"
+            width="{{ block.settings.image.width }}"
+            height="{{ block.settings.image.height }}"
+          >
+        {%- else -%}
+          <div class="w-full h-full flex items-center justify-center" style="background-color: #efeeed;">
+            <span class="material-symbols-outlined" style="color: #8c7166; font-size: 4rem;">apparel</span>
+          </div>
+        {%- endif -%}
+
+        <!-- Hover tint -->
+        <div
+          class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+          style="background-color: rgba(156,63,0,0.18);"
+        ></div>
+
+        <!-- Label -->
+        <div class="absolute bottom-0 left-0 right-0 p-6 flex items-end justify-between">
+          <span
+            class="font-headline font-bold text-xl px-4 py-2 uppercase transition-all duration-300 group-hover:tracking-widest"
+            style="background-color: #1a1c1c; color: #faf9f9;"
+          >
+            {{ block.settings.label }}
+          </span>
+          <span
+            class="material-symbols-outlined opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-400"
+            style="color: #ffffff;"
+          >arrow_forward</span>
+        </div>
+      </a>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "EW Category Grid",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Heading",
+      "default": "The Essentials"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "category_tile",
+      "name": "Category Tile",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Category Image"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Category Label",
+          "default": "T-Shirts"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Category Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "EW Category Grid",
+      "settings": { "heading": "The Essentials" },
+      "blocks": [
+        { "type": "category_tile", "settings": { "label": "T-Shirts" } },
+        { "type": "category_tile", "settings": { "label": "Singlets" } },
+        { "type": "category_tile", "settings": { "label": "Hoodies" } },
+        { "type": "category_tile", "settings": { "label": "Polos" } },
+        { "type": "category_tile", "settings": { "label": "Work Shirts" } },
+        { "type": "category_tile", "settings": { "label": "Headwear" } },
+        { "type": "category_tile", "settings": { "label": "Hi-Vis" } },
+        { "type": "category_tile", "settings": { "label": "DTF Film Rolls" } },
+        { "type": "category_tile", "settings": { "label": "Custom Orders" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,109 @@
+<!-- EveryWear: How It Works — "Engineered For Ease" -->
+<section class="py-24 border-t" style="border-color: #e9e8e8; background-color: #faf9f9;">
+  <div class="max-w-6xl mx-auto px-8">
+
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <h2 class="ew-reveal font-headline font-black text-4xl uppercase tracking-tighter" style="color: #1a1c1c;">
+        {{ section.settings.heading }}
+      </h2>
+      <div class="ew-reveal mx-auto mt-4 h-px w-16" style="background-color: #9c3f00; transition-delay: 100ms;"></div>
+    </div>
+
+    <!-- Steps -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+      {%- for block in section.blocks -%}
+        <div
+          class="ew-reveal text-center group"
+          style="transition-delay: {{ forloop.index0 | times: 120 }}ms;"
+          {{ block.shopify_attributes }}
+        >
+          <!-- Number + Icon -->
+          <div class="inline-block relative mb-8">
+            <span
+              class="font-headline font-black text-9xl tracking-tighter absolute -top-12 -left-8 select-none pointer-events-none transition-all duration-500 group-hover:opacity-70"
+              style="color: #efeeed; opacity: 0.5; line-height: 1;"
+            >
+              {{ block.settings.step_number }}
+            </span>
+            <span
+              class="material-symbols-outlined relative z-10 transition-transform duration-500 group-hover:scale-110 group-hover:-translate-y-1"
+              style="color: #9c3f00; font-size: 3.75rem;"
+            >
+              {{- block.settings.icon -}}
+            </span>
+          </div>
+
+          <!-- Connector line (between steps, hidden on last) -->
+          {%- unless forloop.last -%}
+            <div class="hidden md:block absolute top-8 right-0 w-1/2 h-px" style="background: linear-gradient(to right, #9c3f00, transparent); opacity: 0.3;"></div>
+          {%- endunless -%}
+
+          <h3 class="font-headline font-bold text-xl uppercase mb-3 transition-colors duration-300 group-hover:text-[#9c3f00]" style="color: #1a1c1c;">
+            {{ block.settings.step_title }}
+          </h3>
+          <p class="text-sm leading-relaxed" style="color: #5e5e5e;">{{ block.settings.step_description }}</p>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "EW How It Works",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Heading",
+      "default": "Engineered For Ease"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        {
+          "type": "text",
+          "id": "step_number",
+          "label": "Step Number (decorative)",
+          "default": "01"
+        },
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Material Symbol Icon",
+          "default": "apparel",
+          "info": "Use a Material Symbols icon name"
+        },
+        {
+          "type": "text",
+          "id": "step_title",
+          "label": "Step Title",
+          "default": "Pick Your Garment"
+        },
+        {
+          "type": "textarea",
+          "id": "step_description",
+          "label": "Step Description",
+          "default": "Browse our massive range of premium basics and industrial workwear."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "EW How It Works",
+      "settings": { "heading": "Engineered For Ease" },
+      "blocks": [
+        { "type": "step", "settings": { "step_number": "01", "icon": "apparel", "step_title": "Pick Your Garment", "step_description": "Browse our massive range of premium basics and industrial workwear." } },
+        { "type": "step", "settings": { "step_number": "02", "icon": "upload_file", "step_title": "Upload Your Logo", "step_description": "Upload your PDF or high-res PNG. Our team checks every file for precision." } },
+        { "type": "step", "settings": { "step_number": "03", "icon": "precision_manufacturing", "step_title": "We Print & Deliver", "step_description": "In-house industrial printing with rapid turnaround Australia-wide." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

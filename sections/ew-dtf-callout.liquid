@@ -1,0 +1,159 @@
+<!-- EveryWear: DTF Film Rolls Callout -->
+<section class="grid grid-cols-1 md:grid-cols-2" style="background-color: #f4f3f3;">
+
+  {%- assign is_right = false -%}
+  {%- if section.settings.layout == 'image_right' -%}
+    {%- assign is_right = true -%}
+  {%- endif -%}
+
+  <!-- Image Side -->
+  <div
+    class="relative min-h-[500px] ew-img-hover overflow-hidden {% if is_right %}md:order-2{% endif %}"
+  >
+    {%- if section.settings.image != blank -%}
+      <img
+        src="{{ section.settings.image | image_url: width: 1000 }}"
+        alt="{{ section.settings.image.alt | default: section.settings.heading | escape }}"
+        class="w-full h-full object-cover absolute inset-0 transition-transform duration-700"
+        loading="lazy"
+        width="{{ section.settings.image.width }}"
+        height="{{ section.settings.image.height }}"
+      >
+      <!-- Gradient overlay on image -->
+      <div
+        class="absolute inset-0"
+        style="background: linear-gradient({% if is_right %}to left{% else %}to right{% endif %}, rgba(244,243,243,0.3) 0%, transparent 50%);"
+      ></div>
+    {%- else -%}
+      <div class="w-full h-full min-h-[500px] flex items-center justify-center" style="background-color: #efeeed;">
+        <span class="material-symbols-outlined" style="color: #8c7166; font-size: 5rem;">image</span>
+      </div>
+    {%- endif -%}
+  </div>
+
+  <!-- Content Side -->
+  <div
+    class="flex flex-col justify-center px-8 md:px-24 py-16 {% if is_right %}md:order-1{% endif %}"
+    style="background-color: #f4f3f3;"
+  >
+    {%- if section.settings.eyebrow != blank -%}
+      <p class="ew-reveal font-label text-xs uppercase tracking-[0.35em] font-bold mb-4" style="color: #9c3f00;">
+        {{ section.settings.eyebrow }}
+      </p>
+    {%- endif -%}
+
+    <h2 class="ew-reveal font-headline font-black text-5xl uppercase tracking-tighter mb-6 leading-tight" style="color: #1a1c1c; transition-delay: 80ms;">
+      {{ section.settings.heading | newline_to_br }}
+    </h2>
+
+    {%- if section.settings.description != blank -%}
+      <p class="ew-reveal text-lg mb-10 max-w-md leading-relaxed" style="color: #5e5e5e; transition-delay: 160ms;">
+        {{ section.settings.description }}
+      </p>
+    {%- endif -%}
+
+    {%- if section.settings.btn_label != blank -%}
+      <div class="ew-reveal" style="transition-delay: 240ms;">
+        <a
+          href="{{ section.settings.btn_link }}"
+          class="ew-underline-accent font-headline font-black uppercase tracking-tighter text-2xl transition-colors duration-300 inline-block pb-2 border-b-4"
+          style="border-bottom-color: #9c3f00; color: #1a1c1c;"
+          onmouseover="this.style.color='#9c3f00'"
+          onmouseout="this.style.color='#1a1c1c'"
+        >
+          {{ section.settings.btn_label }}
+          <span class="material-symbols-outlined align-middle ml-1 transition-transform duration-300 inline-block" style="font-size: 1.5rem; transform: translateX(0);"
+            onmouseover="this.style.transform='translateX(6px)'"
+            onmouseout="this.style.transform='translateX(0)'"
+          >arrow_forward</span>
+        </a>
+      </div>
+    {%- endif -%}
+
+    <!-- Feature bullets -->
+    {%- if section.settings.bullets != blank -%}
+      <ul class="ew-reveal mt-8 space-y-2" style="transition-delay: 320ms;">
+        {%- assign bullet_items = section.settings.bullets | split: ',' -%}
+        {%- for item in bullet_items -%}
+          <li class="flex items-center gap-3 font-label text-sm uppercase font-bold tracking-wider" style="color: #1a1c1c;">
+            <span class="material-symbols-outlined" style="color: #9c3f00; font-size: 1.1rem;">check_circle</span>
+            {{ item | strip }}
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "EW DTF Callout",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Callout Image"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Image Position",
+      "options": [
+        { "value": "image_left", "label": "Image Left" },
+        { "value": "image_right", "label": "Image Right" }
+      ],
+      "default": "image_left"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow Text",
+      "default": "Now Available"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Pro-Grade\nDTF Film Rolls"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "The same high-durability film we use in-house, now available for your production line. Industrial precision, vibrant color reproduction, and effortless peel."
+    },
+    {
+      "type": "text",
+      "id": "bullets",
+      "label": "Feature Bullets (comma separated)",
+      "default": "Industrial Grade Durability, Vibrant Colour Reproduction, Effortless Peel",
+      "info": "Separate items with commas"
+    },
+    {
+      "type": "text",
+      "id": "btn_label",
+      "label": "Button Label",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "btn_link",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "EW DTF Callout",
+      "settings": {
+        "eyebrow": "Now Available",
+        "heading": "Pro-Grade\nDTF Film Rolls",
+        "description": "The same high-durability film we use in-house, now available for your production line. Industrial precision, vibrant color reproduction, and effortless peel.",
+        "bullets": "Industrial Grade Durability, Vibrant Colour Reproduction, Effortless Peel",
+        "btn_label": "Shop Now",
+        "layout": "image_left"
+      }
+    }
+  ]
+}
+{% endschema %}

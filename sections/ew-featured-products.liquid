@@ -1,0 +1,200 @@
+<!-- EveryWear: Featured Products — "Most Popular Garments" -->
+<section class="py-24" style="background-color: #f4f3f3;">
+  <div class="max-w-screen-2xl mx-auto px-8">
+
+    <!-- Header -->
+    <div class="mb-12">
+      <h2 class="ew-reveal font-headline font-black text-4xl uppercase tracking-tighter mb-2" style="color: #1a1c1c;">
+        {{ section.settings.heading }}
+      </h2>
+      {%- if section.settings.subheading != blank -%}
+        <p class="ew-reveal font-label uppercase text-sm tracking-widest" style="color: #5e5e5e; transition-delay: 100ms;">
+          {{ section.settings.subheading }}
+        </p>
+      {%- endif -%}
+    </div>
+
+    <!-- Product cards -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 ew-stagger">
+      {%- for block in section.blocks -%}
+        <div
+          class="ew-reveal flex flex-col group"
+          style="background-color: #ffffff; padding: 1.5rem; box-shadow: 0 20px 60px -15px rgba(0,0,0,0.08); transition-delay: {{ forloop.index0 | times: 80 }}ms;"
+          {{ block.shopify_attributes }}
+        >
+          <!-- Image -->
+          <div
+            class="ew-img-hover mb-6"
+            style="aspect-ratio: 3/4; background-color: #faf9f9;"
+          >
+            {%- if block.settings.product != blank -%}
+              {%- assign prod = block.settings.product -%}
+              {%- if prod.featured_image != blank -%}
+                <img
+                  src="{{ prod.featured_image | image_url: width: 600 }}"
+                  alt="{{ prod.featured_image.alt | default: prod.title | escape }}"
+                  class="w-full h-full object-cover"
+                  loading="lazy"
+                  width="{{ prod.featured_image.width }}"
+                  height="{{ prod.featured_image.height }}"
+                >
+              {%- endif -%}
+            {%- elsif block.settings.custom_image != blank -%}
+              <img
+                src="{{ block.settings.custom_image | image_url: width: 600 }}"
+                alt="{{ block.settings.custom_image.alt | default: block.settings.product_name | escape }}"
+                class="w-full h-full object-cover"
+                loading="lazy"
+                width="{{ block.settings.custom_image.width }}"
+                height="{{ block.settings.custom_image.height }}"
+              >
+            {%- else -%}
+              <div class="w-full h-full flex items-center justify-center" style="background-color: #efeeed;">
+                <span class="material-symbols-outlined" style="color: #8c7166; font-size: 4rem;">apparel</span>
+              </div>
+            {%- endif -%}
+          </div>
+
+          <!-- Info -->
+          <div class="flex-grow">
+            {%- if block.settings.badge != blank -%}
+              <div class="mb-2">
+                <span class="font-label text-[10px] uppercase px-2 py-0.5 font-bold" style="background-color: #e2e2e2; color: #646464;">
+                  {{ block.settings.badge }}
+                </span>
+              </div>
+            {%- endif -%}
+
+            {%- if block.settings.product != blank -%}
+              <h3 class="font-headline font-bold text-lg uppercase leading-tight mb-1" style="color: #1a1c1c;">
+                {{ block.settings.product.title }}
+              </h3>
+              <p class="font-label text-sm font-bold mb-4" style="color: #9c3f00;">
+                {{ block.settings.product.price | money }}
+                {%- if block.settings.product.compare_at_price > block.settings.product.price -%}
+                  <span class="font-normal line-through ml-2" style="color: #5e5e5e;">{{ block.settings.product.compare_at_price | money }}</span>
+                {%- endif -%}
+              </p>
+            {%- else -%}
+              <h3 class="font-headline font-bold text-lg uppercase leading-tight mb-1" style="color: #1a1c1c;">
+                {{ block.settings.product_name }}
+              </h3>
+              <p class="font-label text-sm font-bold mb-4" style="color: #9c3f00;">
+                {{ block.settings.price }}
+                {%- if block.settings.compare_price != blank -%}
+                  <span class="font-normal line-through ml-2" style="color: #5e5e5e;">{{ block.settings.compare_price }}</span>
+                {%- endif -%}
+              </p>
+            {%- endif -%}
+          </div>
+
+          <!-- CTA Button -->
+          {%- assign btn_url = block.settings.btn_link -%}
+          {%- if block.settings.product != blank -%}{%- assign btn_url = block.settings.product.url -%}{%- endif -%}
+          <a
+            href="{{ btn_url | default: '#' }}"
+            class="ew-btn-shimmer w-full font-headline font-bold uppercase py-3 text-sm tracking-tight flex items-center justify-center gap-2 text-white transition-all duration-300"
+            style="background-color: #1a1c1c;"
+            onmouseover="this.style.backgroundColor='#9c3f00'; this.style.letterSpacing='0.12em';"
+            onmouseout="this.style.backgroundColor='#1a1c1c'; this.style.letterSpacing='';"
+          >
+            <span class="material-symbols-outlined" style="font-size: 1.1rem;">add_circle</span>
+            <span>{{ block.settings.btn_label | default: 'Add Logo' }}</span>
+          </a>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "EW Featured Products",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Heading",
+      "default": "Most Popular Garments"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Selected for durability and print quality"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product_card",
+      "name": "Product Card",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product (optional — overrides manual fields)"
+        },
+        {
+          "type": "header",
+          "content": "Manual Fields"
+        },
+        {
+          "type": "image_picker",
+          "id": "custom_image",
+          "label": "Custom Product Image"
+        },
+        {
+          "type": "text",
+          "id": "product_name",
+          "label": "Product Name",
+          "default": "AS Colour Staple Tee"
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "label": "Price",
+          "default": "$18.50"
+        },
+        {
+          "type": "text",
+          "id": "compare_price",
+          "label": "Compare-at Price (optional)"
+        },
+        {
+          "type": "text",
+          "id": "badge",
+          "label": "Badge Label",
+          "default": "Best Seller"
+        },
+        {
+          "type": "text",
+          "id": "btn_label",
+          "label": "Button Label",
+          "default": "Add Logo"
+        },
+        {
+          "type": "url",
+          "id": "btn_link",
+          "label": "Button Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "EW Featured Products",
+      "settings": {
+        "heading": "Most Popular Garments",
+        "subheading": "Selected for durability and print quality"
+      },
+      "blocks": [
+        { "type": "product_card", "settings": { "product_name": "AS Colour Staple Tee", "price": "$18.50", "compare_price": "$24.00", "badge": "Best Seller", "btn_label": "Add Logo" } },
+        { "type": "product_card", "settings": { "product_name": "JBs Hi-Vis Polo", "price": "$22.00", "badge": "Safety Rated", "btn_label": "Add Logo" } },
+        { "type": "product_card", "settings": { "product_name": "AS Colour Supply Hoodie", "price": "$45.00", "badge": "Premium Fit", "btn_label": "Add Logo" } },
+        { "type": "product_card", "settings": { "product_name": "Tradie Work Shirt", "price": "$38.00", "badge": "Indestructible", "btn_label": "Add Logo" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

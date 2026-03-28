@@ -1,0 +1,76 @@
+<!-- EveryWear: Bulk Order CTA -->
+<section class="py-20 relative overflow-hidden" style="background-color: #9c3f00;">
+
+  <!-- Subtle texture overlay -->
+  <div class="absolute inset-0 pointer-events-none" style="background-image: radial-gradient(circle at 80% 50%, rgba(196,81,0,0.6) 0%, transparent 60%);"></div>
+
+  <div class="relative z-10 max-w-screen-2xl mx-auto px-8 flex flex-col md:flex-row items-center justify-between gap-10">
+
+    <!-- Text -->
+    <div class="mb-0">
+      <h2 class="ew-reveal-left font-headline font-black text-4xl md:text-5xl text-white uppercase tracking-tighter leading-tight">
+        {{ section.settings.heading | newline_to_br }}
+      </h2>
+      {%- if section.settings.subheading != blank -%}
+        <p class="ew-reveal-left font-label uppercase tracking-widest mt-4 text-sm" style="color: rgba(255,255,255,0.75); transition-delay: 100ms;">
+          {{ section.settings.subheading }}
+        </p>
+      {%- endif -%}
+    </div>
+
+    <!-- CTA Button -->
+    {%- if section.settings.btn_label != blank -%}
+      <a
+        href="{{ section.settings.btn_link }}"
+        class="ew-reveal-right ew-btn-shimmer ew-magnetic inline-block font-headline font-black uppercase py-6 px-12 text-lg tracking-tight transition-all duration-300 flex-shrink-0"
+        style="background-color: #ffffff; color: #9c3f00;"
+        onmouseover="this.style.backgroundColor='#faf9f9'; this.style.transform='translateY(-3px)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,0.2)';"
+        onmouseout="this.style.backgroundColor='#ffffff'; this.style.transform=''; this.style.boxShadow='';"
+      >
+        {{ section.settings.btn_label }}
+      </a>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "EW Bulk Order CTA",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Ordering 100+ items?\nWe've got you covered."
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Get a custom quote tailored to your order requirements."
+    },
+    {
+      "type": "text",
+      "id": "btn_label",
+      "label": "Button Label",
+      "default": "Request a Quote"
+    },
+    {
+      "type": "url",
+      "id": "btn_link",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "EW Bulk Order CTA",
+      "settings": {
+        "heading": "Ordering 100+ items?\nWe've got you covered.",
+        "subheading": "Get a custom quote tailored to your order requirements.",
+        "btn_label": "Request a Quote"
+      }
+    }
+  ]
+}
+{% endschema %}
