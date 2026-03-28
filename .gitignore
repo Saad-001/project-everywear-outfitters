@@ -1,0 +1,8 @@
+# Non-theme files
+*.cmd
+*.bat
+*.exe
+*.sh
+node_modules/
+.DS_Store
+Thumbs.db
