@@ -1,0 +1,139 @@
+{% assign col_count = section.blocks.size | plus: 1 %}
+{% case col_count %}
+  {% when 2 %}{% assign grid_cols = 'md:grid-cols-2' %}
+  {% when 3 %}{% assign grid_cols = 'md:grid-cols-3' %}
+  {% when 4 %}{% assign grid_cols = 'md:grid-cols-4' %}
+  {% when 5 %}{% assign grid_cols = 'md:grid-cols-5' %}
+  {% else %}{% assign grid_cols = 'md:grid-cols-4' %}
+{% endcase %}
+
+<footer class="bg-[#1a1c1c] dark:bg-black w-full pt-16 pb-8 border-t border-[#9c3f00]/20">
+  <div class="grid grid-cols-1 {{ grid_cols }} gap-12 px-12 max-w-[1920px] mx-auto">
+
+    <!-- Brand Column -->
+    <div>
+      <div class="text-xl font-black text-white uppercase tracking-widest mb-6 font-headline">
+        {{ section.settings.brand_name }}
+      </div>
+      <p class="font-['Work_Sans'] text-sm text-gray-400 mb-6">
+        {{ section.settings.brand_tagline }}
+      </p>
+      <div class="flex space-x-4">
+        {% if settings.social_facebook_link != blank %}
+          <a href="{{ settings.social_facebook_link }}" target="_blank" rel="noopener noreferrer">
+            <span class="material-symbols-outlined text-gray-500 hover:text-[#9c3f00] cursor-pointer">social_leaderboard</span>
+          </a>
+        {% endif %}
+        {% if settings.social_instagram_link != blank %}
+          <a href="{{ settings.social_instagram_link }}" target="_blank" rel="noopener noreferrer">
+            <span class="material-symbols-outlined text-gray-500 hover:text-[#9c3f00] cursor-pointer">camera</span>
+          </a>
+        {% endif %}
+        {% if section.settings.email_address != blank %}
+          <a href="mailto:{{ section.settings.email_address }}">
+            <span class="material-symbols-outlined text-gray-500 hover:text-[#9c3f00] cursor-pointer">alternate_email</span>
+          </a>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- Link Columns -->
+    {% for block in section.blocks %}
+      {% if block.type == 'link_list' %}
+        {% assign nav = linklists[block.settings.menu] %}
+        <div {{ block.shopify_attributes }}>
+          <h4 class="text-white font-headline font-bold uppercase text-xs tracking-widest mb-6">
+            {{ block.settings.heading | default: nav.title }}
+          </h4>
+          <ul class="space-y-3 font-['Work_Sans'] text-sm text-gray-500">
+            {% for link in nav.links %}
+              <li class="hover:text-[#9c3f00] hover:translate-x-1 transition-transform cursor-pointer">
+                <a href="{{ link.url }}" class="hover:text-[#9c3f00]">{{ link.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+    {% endfor %}
+
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="mt-16 px-12 max-w-[1920px] mx-auto pt-8 border-t border-white/5">
+    <p class="font-['Work_Sans'] text-xs text-gray-600 uppercase tracking-widest text-center">
+      {{ section.settings.copyright_text }}
+    </p>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "EW Footer",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Brand"
+    },
+    {
+      "type": "text",
+      "id": "brand_name",
+      "label": "Brand Name",
+      "default": "EveryWear Outfit"
+    },
+    {
+      "type": "textarea",
+      "id": "brand_tagline",
+      "label": "Brand Tagline",
+      "default": "Industrial Precision in Every Stitch. Australia's premier destination for custom workwear and pro-grade transfers."
+    },
+    {
+      "type": "header",
+      "content": "Social Links"
+    },
+    {
+      "type": "text",
+      "id": "email_address",
+      "label": "Email Address"
+    },
+    {
+      "type": "header",
+      "content": "Bottom Bar"
+    },
+    {
+      "type": "text",
+      "id": "copyright_text",
+      "label": "Copyright Text",
+      "default": "© 2024 EveryWear Outfit. Industrial Precision in Every Stitch."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "link_list",
+      "name": "Link List",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Column Heading",
+          "info": "Leave blank to use the menu title"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Menu"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "EW Footer",
+      "blocks": [
+        { "type": "link_list" },
+        { "type": "link_list" },
+        { "type": "link_list" }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -11,10 +11,40 @@
   "sections": {
     "banner": {
       "type": "main-collection-banner",
+      "disabled": true,
       "settings": {
-        "show_collection_description": false,
+        "show_collection_description": true,
         "show_collection_image": false,
-        "color_scheme": "scheme-1"
+        "color_scheme": "scheme-3"
+      }
+    },
+    "image_banner_NL3M9x": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_87yL6T": {
+          "type": "heading",
+          "settings": {
+            "heading": "{{ collection.title }}",
+            "heading_size": "h0"
+          }
+        }
+      },
+      "block_order": [
+        "heading_87yL6T"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "{{ collection.image }}",
+        "image_overlay_opacity": 20,
+        "image_height": "medium",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": false,
+        "color_scheme": "scheme-2",
+        "stack_images_on_mobile": false,
+        "mobile_content_alignment": "left",
+        "show_text_below": false
       }
     },
     "product-grid": {
@@ -22,7 +52,8 @@
       "settings": {
         "products_per_page": 16,
         "columns_desktop": 4,
-        "color_scheme": "scheme-1",
+        "columns_mobile": "2",
+        "color_scheme": "scheme-3",
         "image_ratio": "portrait",
         "image_shape": "default",
         "show_secondary_image": true,
@@ -30,16 +61,92 @@
         "show_rating": false,
         "quick_add": "none",
         "enable_filtering": true,
-        "filter_type": "drawer",
+        "filter_type": "horizontal",
         "enable_sorting": true,
-        "columns_mobile": "1",
-        "padding_top": 0,
-        "padding_bottom": 40
+        "padding_top": 56,
+        "padding_bottom": 56
+      }
+    },
+    "ew_technical_composition_6UWNiT": {
+      "type": "ew-technical-composition",
+      "blocks": {
+        "stat_card_c8WNck": {
+          "type": "stat_card",
+          "settings": {
+            "label": "Fabric Weight",
+            "value": "280 – 450 GSM",
+            "description": "Ultra-dense weave provides structural silhouette stability and enhanced thermal regulation.",
+            "icon_svg": "<svg width=\"40\" height=\"40\" viewbox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 2C10.9 2 10 2.9 10 4C10 4.38 10.11 4.73 10.29 5.03L5.11 19.53C4.9 20.1 5.2 20.73 5.77 20.94C6.34 21.15 6.97 20.85 7.18 20.28L12 6.8L16.82 20.28C17.03 20.85 17.66 21.15 18.23 20.94C18.8 20.73 19.1 20.1 18.89 19.53L13.71 5.03C13.89 4.73 14 4.38 14 4C14 2.9 13.1 2 12 2ZM12 4C12.55 4 13 4.45 13 5C13 5.55 12.55 6 12 6C11.45 6 11 5.55 11 5C11 4.45 11.45 4 12 4Z\" fill=\"#CC5500\"></path></svg>"
+          }
+        },
+        "stat_card_aRzdLC": {
+          "type": "stat_card",
+          "settings": {
+            "label": "Durability",
+            "value": "500+ Cycles",
+            "description": "Tested for abrasion resistance against Grade-A concrete and structural steel interaction.",
+            "icon_svg": "<svg width=\"40\" height=\"40\" viewbox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M23 12L20.56 9.22L20.9 5.54L17.29 4.72L15.4 1.54L12 3L8.6 1.54L6.71 4.72L3.1 5.53L3.44 9.21L1 12L3.44 14.78L3.1 18.47L6.71 19.29L8.6 22.47L12 21L15.4 22.46L17.29 19.28L20.9 18.46L20.56 14.78L23 12ZM10 17L6 13L7.41 11.59L10 14.17L16.59 7.58L18 9L10 17Z\" fill=\"#CC5500\"></path></svg>"
+          }
+        },
+        "stat_card_LRYkt7": {
+          "type": "stat_card",
+          "settings": {
+            "label": "Print Tech",
+            "value": "DTG & Plastisol",
+            "description": "High-viscosity inks cured at 325°F for maximum bonding with cotton fibers.",
+            "icon_svg": "<svg width=\"40\" height=\"40\" viewbox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M19 8H5C3.34 8 2 9.34 2 11V17H6V21H18V17H22V11C22 9.34 20.66 8 19 8ZM16 19H8V14H16V19ZM19 12C18.45 12 18 11.55 18 11C18 10.45 18.45 10 19 10C19.55 10 20 10.45 20 11C20 11.55 19.55 12 19 12ZM18 3H6V7H18V3Z\" fill=\"#CC5500\"></path></svg>"
+          }
+        }
+      },
+      "block_order": [
+        "stat_card_c8WNck",
+        "stat_card_aRzdLC",
+        "stat_card_LRYkt7"
+      ],
+      "name": "EW Technical Composition",
+      "settings": {
+        "heading": "Technical Composition",
+        "description": "Every garment undergoes high-stress testing to ensure molecular integrity and pigment retention under industrial laundry conditions.",
+        "report_id": "REPORT_ID: #503.40",
+        "background_color": "#111111",
+        "card_background_color": "#1c1c1c",
+        "accent_color": "#e07820",
+        "heading_color": "#ffffff",
+        "text_color": "#9a9a9a",
+        "label_color": "#e07820",
+        "section_padding_top": 64,
+        "section_padding_bottom": 64
+      }
+    },
+    "ew_bulk_engineering_UczAqt": {
+      "type": "ew-bulk-engineering",
+      "name": "EW Bulk Engineering",
+      "settings": {
+        "stat_number": "100+",
+        "stat_label": "Items",
+        "heading": "Bulk Engineering",
+        "description": "Equip your entire workforce with precision-crafted uniforms. Tiered pricing available for orders over 100 units. Our team handles large-scale production with the same industrial precision as our single-item prints.",
+        "btn_label": "Request a Quote",
+        "btn_link": "",
+        "section_bg": "#faf9f9",
+        "card_bg": "#ffffff",
+        "stat_bg": "#1a1c1c",
+        "accent_color": "#ffb693",
+        "heading_color": "#1a1c1c",
+        "body_text_color": "#7a7d7d",
+        "btn_bg": "#1a1c1c",
+        "btn_hover_bg": "#9c3f00",
+        "btn_text_color": "#faf9f9",
+        "padding_top": 64,
+        "padding_bottom": 64
       }
     }
   },
   "order": [
     "banner",
-    "product-grid"
+    "image_banner_NL3M9x",
+    "product-grid",
+    "ew_technical_composition_6UWNiT",
+    "ew_bulk_engineering_UczAqt"
   ]
 }

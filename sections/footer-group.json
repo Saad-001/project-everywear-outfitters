@@ -12,32 +12,40 @@
   "type": "footer",
   "sections": {
     "footer": {
-      "type": "footer",
+      "type": "ew-footer",
       "blocks": {
+        "link_list_VKnybC": {
+          "type": "link_list",
+          "settings": {
+            "heading": "",
+            "menu": "shop-range"
+          }
+        },
         "link_list_hW4PRB": {
           "type": "link_list",
           "settings": {
-            "heading": "Quick links",
-            "menu": "footer"
+            "heading": "",
+            "menu": "pro-services"
+          }
+        },
+        "link_list_RyVmGz": {
+          "type": "link_list",
+          "settings": {
+            "heading": "",
+            "menu": "support"
           }
         }
       },
       "block_order": [
-        "link_list_hW4PRB"
+        "link_list_VKnybC",
+        "link_list_hW4PRB",
+        "link_list_RyVmGz"
       ],
       "settings": {
-        "color_scheme": "scheme-2",
-        "newsletter_enable": false,
-        "newsletter_heading": "",
-        "enable_follow_on_shop": true,
-        "show_social": true,
-        "enable_country_selector": true,
-        "enable_language_selector": true,
-        "payment_enable": true,
-        "show_policy": true,
-        "margin_top": 0,
-        "padding_top": 44,
-        "padding_bottom": 40
+        "brand_name": "EveryWear Outfit",
+        "brand_tagline": "Industrial Precision in Every Stitch. Australia's premier destination for custom workwear and pro-grade transfers.",
+        "email_address": "",
+        "copyright_text": "© 2024 EveryWear Outfit. Industrial Precision in Every Stitch."
       }
     }
   },

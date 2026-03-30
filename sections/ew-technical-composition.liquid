@@ -1,0 +1,359 @@
+{% comment %}
+  Section: Technical Composition
+  Customizable via Shopify Theme Editor
+{% endcomment %}
+
+<section
+  class="tech-comp"
+  id="tech-comp-{{ section.id }}"
+  style="
+    --bg: {{ section.settings.background_color }};
+    --accent: {{ section.settings.accent_color }};
+    --heading-color: {{ section.settings.heading_color }};
+    --text-color: {{ section.settings.text_color }};
+    --card-bg: {{ section.settings.card_background_color }};
+    --label-color: {{ section.settings.label_color }};
+  "
+>
+  <div class="tech-comp__inner page-width">
+
+    <!-- LEFT PANEL -->
+    <div class="tech-comp__left">
+      <h2 class="tech-comp__heading">{{ section.settings.heading }}</h2>
+      <p class="tech-comp__description">{{ section.settings.description }}</p>
+      {% if section.settings.report_id != blank %}
+        <span class="tech-comp__report-id">{{ section.settings.report_id }}</span>
+      {% endif %}
+    </div>
+
+    <!-- RIGHT PANEL: STAT CARDS -->
+    <div class="tech-comp__cards">
+      {% for block in section.blocks %}
+        {% if block.type == 'stat_card' %}
+          <div class="tech-comp__card" {{ block.shopify_attributes }}>
+            <div class="tech-comp__card-icon">
+              {% if block.settings.icon_svg != blank %}
+                {{ block.settings.icon_svg }}
+              {% else %}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M12 6v6l4 2"/>
+                </svg>
+              {% endif %}
+            </div>
+            <span class="tech-comp__card-label">{{ block.settings.label }}</span>
+            <div class="tech-comp__card-value">{{ block.settings.value }}</div>
+            {% if block.settings.description != blank %}
+              <p class="tech-comp__card-desc">{{ block.settings.description }}</p>
+            {% endif %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  #tech-comp-{{ section.id }} {
+    background-color: var(--bg);
+    padding: {{ section.settings.section_padding_top }}px 0 {{ section.settings.section_padding_bottom }}px;
+    font-family: var(--font-body-family);
+  }
+
+  #tech-comp-{{ section.id }} .tech-comp__inner {
+    max-width: var(--page-width);
+    margin: 0 auto;
+    /* padding: 0 5rem; */
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  /* LEFT */
+  #tech-comp-{{ section.id }} .tech-comp__heading {
+    font-family: var(--font-heading-family);
+    font-size: clamp(28px, 4vw, 48px);
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--heading-color);
+    letter-spacing: 0.02em;
+    line-height: 1.05;
+    margin: 0 0 16px;
+  }
+
+  #tech-comp-{{ section.id }} .tech-comp__description {
+    font-size: clamp(13px, 1.4vw, 15px);
+    color: var(--text-color);
+    line-height: 1.65;
+    margin: 0 0 24px;
+    font-weight: 400;
+    font-family: var(--font-body-family);
+    max-width: 300px;
+  }
+
+  #tech-comp-{{ section.id }} .tech-comp__report-id {
+    display: inline-block;
+    font-family: var(--font-body-family);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    border-top: 2px solid var(--accent);
+    padding-top: 10px;
+  }
+
+  /* CARDS */
+  #tech-comp-{{ section.id }} .tech-comp__cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+  }
+
+  #tech-comp-{{ section.id }} .tech-comp__card {
+    background-color: var(--card-bg);
+    border: 1px solid rgba(250,249,249,0.1);
+    padding: 28px 20px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+    transition: border-color 0.25s ease, transform 0.25s ease;
+  }
+
+  #tech-comp-{{ section.id }} .tech-comp__card:hover {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+  }
+
+  #tech-comp-{{ section.id }} .tech-comp__card-icon {
+    color: var(--accent);
+    margin-bottom: 4px;
+    line-height: 1;
+  }
+
+  #tech-comp-{{ section.id }} .tech-comp__card-icon svg {
+    width: 28px;
+    height: 28px;
+    fill: currentColor;
+    stroke: none;
+  }
+
+  #tech-comp-{{ section.id }} .tech-comp__card-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--label-color);
+    font-family: var(--font-body-family);
+  }
+
+  #tech-comp-{{ section.id }} .tech-comp__card-value {
+    font-family: var(--font-heading-family);
+    font-size: clamp(18px, 2.4vw, 26px);
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--heading-color);
+    letter-spacing: 0.01em;
+    line-height: 1.1;
+  }
+
+  #tech-comp-{{ section.id }} .tech-comp__card-desc {
+    font-size: 12px;
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 4px 0 0;
+    font-family: var(--font-body-family);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    #tech-comp-{{ section.id }} .tech-comp__inner {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    #tech-comp-{{ section.id }} .tech-comp__description {
+      max-width: 100%;
+    }
+  }
+
+  @media (max-width: 600px) {
+    #tech-comp-{{ section.id }} .tech-comp__cards {
+      grid-template-columns: 1fr 1fr;
+    }
+    #tech-comp-{{ section.id }} .tech-comp__card {
+      padding: 20px 16px;
+    }
+  }
+
+  @media (max-width: 380px) {
+    #tech-comp-{{ section.id }} .tech-comp__cards {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "EW Technical Composition",
+  "tag": "section",
+  "class": "tech-composition-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Technical Composition"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Every garment undergoes high-stress testing to ensure molecular integrity and pigment retention under industrial laundry conditions."
+    },
+    {
+      "type": "text",
+      "id": "report_id",
+      "label": "Report ID (optional)",
+      "default": "REPORT_ID: #503.40"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Section Background",
+      "default": "#1a1c1c"
+    },
+    {
+      "type": "color",
+      "id": "card_background_color",
+      "label": "Card Background",
+      "default": "#232626"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent Color",
+      "default": "#ffb693"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading & Value Color",
+      "default": "#faf9f9"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Body Text Color",
+      "default": "#7a7d7d"
+    },
+    {
+      "type": "color",
+      "id": "label_color",
+      "label": "Card Label Color",
+      "default": "#ffb693"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 64
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stat_card",
+      "name": "Stat Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Fabric Weight"
+        },
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Value",
+          "default": "280 – 450 GSM"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Ultra-dense weave provides structural silhouette stability and enhanced thermal regulation."
+        },
+        {
+          "type": "html",
+          "id": "icon_svg",
+          "label": "Icon SVG (optional)",
+          "info": "Paste an SVG icon tag. Leave blank for default icon."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "EW Technical Composition",
+      "blocks": [
+        {
+          "type": "stat_card",
+          "settings": {
+            "label": "Fabric Weight",
+            "value": "280 – 450 GSM",
+            "description": "Ultra-dense weave provides structural silhouette stability and enhanced thermal regulation.",
+            "icon_svg": "<svg width='40' height='40' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M12 2C10.9 2 10 2.9 10 4C10 4.38 10.11 4.73 10.29 5.03L5.11 19.53C4.9 20.1 5.2 20.73 5.77 20.94C6.34 21.15 6.97 20.85 7.18 20.28L12 6.8L16.82 20.28C17.03 20.85 17.66 21.15 18.23 20.94C18.8 20.73 19.1 20.1 18.89 19.53L13.71 5.03C13.89 4.73 14 4.38 14 4C14 2.9 13.1 2 12 2ZM12 4C12.55 4 13 4.45 13 5C13 5.55 12.55 6 12 6C11.45 6 11 5.55 11 5C11 4.45 11.45 4 12 4Z' fill='#CC5500'/></svg>"
+          }
+        },
+        {
+          "type": "stat_card",
+          "settings": {
+            "label": "Durability",
+            "value": "500+ Cycles",
+            "description": "Tested for abrasion resistance against Grade-A concrete and structural steel interaction.",
+            "icon_svg": "<svg width='40' height='40' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M23 12L20.56 9.22L20.9 5.54L17.29 4.72L15.4 1.54L12 3L8.6 1.54L6.71 4.72L3.1 5.53L3.44 9.21L1 12L3.44 14.78L3.1 18.47L6.71 19.29L8.6 22.47L12 21L15.4 22.46L17.29 19.28L20.9 18.46L20.56 14.78L23 12ZM10 17L6 13L7.41 11.59L10 14.17L16.59 7.58L18 9L10 17Z' fill='#CC5500'/></svg>"
+          }
+        },
+        {
+          "type": "stat_card",
+          "settings": {
+            "label": "Print Tech",
+            "value": "DTG & Plastisol",
+            "description": "High-viscosity inks cured at 325°F for maximum bonding with cotton fibers.",
+            "icon_svg": "<svg width='40' height='40' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M19 8H5C3.34 8 2 9.34 2 11V17H6V21H18V17H22V11C22 9.34 20.66 8 19 8ZM16 19H8V14H16V19ZM19 12C18.45 12 18 11.55 18 11C18 10.45 18.45 10 19 10C19.55 10 20 10.45 20 11C20 11.55 19.55 12 19 12ZM18 3H6V7H18V3Z' fill='#CC5500'/></svg>"
+          }
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6
+}
+{% endschema %}

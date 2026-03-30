@@ -10,13 +10,13 @@
 {
   "current": {
     "logo": "shopify://shop_images/EVERYWEARLOGOFRONT.png",
-    "logo_width": 300,
+    "logo_width": 250,
     "type_header_font": "oswald_n5",
     "heading_scale": 140,
     "type_body_font": "figtree_n5",
     "body_scale": 100,
     "page_width": 1600,
-    "spacing_sections": 52,
+    "spacing_sections": 0,
     "spacing_grid_horizontal": 40,
     "spacing_grid_vertical": 40,
     "animations_reveal_on_scroll": true,
@@ -30,7 +30,7 @@
     "buttons_shadow_blur": 5,
     "variant_pills_border_thickness": 1,
     "variant_pills_border_opacity": 55,
-    "variant_pills_radius": 40,
+    "variant_pills_radius": 0,
     "variant_pills_shadow_opacity": 0,
     "variant_pills_shadow_horizontal_offset": 0,
     "variant_pills_shadow_vertical_offset": 4,
@@ -42,10 +42,10 @@
     "inputs_shadow_horizontal_offset": 0,
     "inputs_shadow_vertical_offset": 4,
     "inputs_shadow_blur": 5,
-    "card_style": "card",
+    "card_style": "standard",
     "card_image_padding": 0,
     "card_text_alignment": "left",
-    "card_color_scheme": "scheme-2",
+    "card_color_scheme": "scheme-9d704d2b-e14d-4f6a-9387-1b0dda28c42a",
     "card_border_thickness": 0,
     "card_border_opacity": 10,
     "card_corner_radius": 0,
@@ -195,6 +195,28 @@
           "button": "#1f1f21",
           "button_label": "#00fced",
           "secondary_button_label": "#1f1f21",
+          "shadow": "#ffffff"
+        }
+      },
+      "scheme-bc6036ce-3a10-440b-bf3d-7580615a7fb4": {
+        "settings": {
+          "background": "#ffffff",
+          "background_gradient": "",
+          "text": "#2d2d2e",
+          "button": "#d35027",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#d35027",
+          "shadow": "#ffffff"
+        }
+      },
+      "scheme-9d704d2b-e14d-4f6a-9387-1b0dda28c42a": {
+        "settings": {
+          "background": "#ffffff",
+          "background_gradient": "",
+          "text": "#d35027",
+          "button": "#d35027",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#d35027",
           "shadow": "#ffffff"
         }
       }

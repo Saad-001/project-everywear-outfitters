@@ -15,6 +15,7 @@
         "background_image": "shopify://shop_images/unnamed_29.png",
         "height": 870,
         "image_opacity": 60,
+        "eyebrow": "Australia's Custom Workwear Specialist",
         "heading_line_1": "Your Brand.",
         "heading_line_2": "On Everything.",
         "subheading": "In-house printing · Bulk pricing · Fast turnaround · Australia-wide",
@@ -72,7 +73,7 @@
           "settings": {
             "image": "shopify://shop_images/unnamed.png",
             "label": "T-Shirts",
-            "link": "/collections/t-shirts"
+            "link": "shopify://collections/t-shirts"
           }
         },
         "cat-2": {
@@ -80,7 +81,7 @@
           "settings": {
             "image": "shopify://shop_images/unnamed_1.png",
             "label": "Singlets",
-            "link": "/collections/singlets"
+            "link": "shopify://collections/tanks-singlets"
           }
         },
         "cat-3": {
@@ -88,7 +89,7 @@
           "settings": {
             "image": "shopify://shop_images/unnamed_2.png",
             "label": "Hoodies",
-            "link": "/collections/hoodies"
+            "link": "shopify://collections/hoodies"
           }
         },
         "cat-4": {
@@ -96,7 +97,7 @@
           "settings": {
             "image": "shopify://shop_images/unnamed_3.png",
             "label": "Polos",
-            "link": "/collections/polos"
+            "link": "shopify://collections/shirts-polos"
           }
         },
         "cat-5": {
@@ -104,7 +105,7 @@
           "settings": {
             "image": "shopify://shop_images/unnamed_4.png",
             "label": "Work Shirts",
-            "link": "/collections/work-shirts"
+            "link": "shopify://collections/t-shirts"
           }
         },
         "cat-6": {
@@ -112,7 +113,7 @@
           "settings": {
             "image": "shopify://shop_images/unnamed_5.png",
             "label": "Headwear",
-            "link": "/collections/headwear"
+            "link": "shopify://collections/headwear"
           }
         },
         "cat-7": {
@@ -120,7 +121,7 @@
           "settings": {
             "image": "shopify://shop_images/unnamed_6.png",
             "label": "Hi-Vis",
-            "link": "/collections/hi-vis"
+            "link": "shopify://collections"
           }
         },
         "cat-8": {
@@ -128,7 +129,7 @@
           "settings": {
             "image": "shopify://shop_images/unnamed_7.png",
             "label": "DTF Film Rolls",
-            "link": "/collections/dtf-film-rolls"
+            "link": "shopify://collections"
           }
         },
         "cat-9": {
@@ -136,7 +137,7 @@
           "settings": {
             "image": "shopify://shop_images/unnamed_8.png",
             "label": "Custom Orders",
-            "link": "/pages/custom-orders"
+            "link": "shopify://collections"
           }
         }
       },
@@ -276,8 +277,10 @@
       "settings": {
         "image": "shopify://shop_images/unnamed_13.png",
         "layout": "image_left",
+        "eyebrow": "Now Available",
         "heading": "Pro-Grade\nDTF Film Rolls",
         "description": "The same high-durability film we use in-house, now available for your production line. Industrial precision, vibrant color reproduction, and effortless peel.",
+        "bullets": "Industrial Grade Durability, Vibrant Colour Reproduction, Effortless Peel",
         "btn_label": "Shop Now",
         "btn_link": "/collections/dtf-film-rolls"
       }
@@ -350,7 +353,8 @@
         "subheading": "Get new styles, print tips, and exclusive deals delivered to your inbox.",
         "placeholder": "Enter your email",
         "btn_label": "Join Now",
-        "success_message": "Thanks for subscribing!"
+        "success_message": "Thanks for subscribing!",
+        "privacy_note": "No spam. Unsubscribe anytime."
       }
     }
   },

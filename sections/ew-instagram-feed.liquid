@@ -17,7 +17,7 @@
   <div class="grid grid-cols-2 md:grid-cols-6 gap-4 ew-stagger">
     {%- for block in section.blocks -%}
       <div
-        class="ew-reveal-scale aspect-square overflow-hidden group"
+        class="ew-reveal-scale aspect-square overflow-hidden group relative"
         style="transition-delay: {{ forloop.index0 | times: 60 }}ms;"
         {{ block.shopify_attributes }}
       >

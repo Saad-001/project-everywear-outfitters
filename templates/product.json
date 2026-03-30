@@ -35,7 +35,7 @@
           "type": "variant_picker",
           "settings": {
             "picker_type": "button",
-            "swatch_shape": "circle"
+            "swatch_shape": "square"
           }
         },
         "quantity_selector": {
@@ -73,41 +73,142 @@
       ],
       "settings": {
         "enable_sticky_info": true,
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-3",
         "media_size": "medium",
-        "constrain_to_viewport": true,
-        "media_fit": "contain",
+        "constrain_to_viewport": false,
+        "media_fit": "cover",
         "gallery_layout": "thumbnail",
         "mobile_thumbnails": "hide",
         "media_position": "left",
-        "image_zoom": "lightbox",
-        "hide_variants": false,
+        "image_zoom": "none",
+        "hide_variants": true,
         "enable_video_looping": false,
         "padding_top": 36,
-        "padding_bottom": 12
+        "padding_bottom": 48
+      }
+    },
+    "ew_industrial_precision_9a7kVU": {
+      "type": "ew-industrial-precision",
+      "blocks": {
+        "stat_6r9zcf": {
+          "type": "stat",
+          "settings": {
+            "stat_number": "10*+*",
+            "stat_label": "Years in Business",
+            "stat_sublabel": "Est. 2012"
+          }
+        },
+        "stat_JfVihV": {
+          "type": "stat",
+          "settings": {
+            "stat_number": "50*K*+",
+            "stat_label": "Garments Printed",
+            "stat_sublabel": "& counting"
+          }
+        },
+        "stat_UPimwj": {
+          "type": "stat",
+          "settings": {
+            "stat_number": "100*%*",
+            "stat_label": "In-House Printing",
+            "stat_sublabel": "No outsourcing"
+          }
+        },
+        "stat_Qcka4N": {
+          "type": "stat",
+          "settings": {
+            "stat_number": "AUS*-*Wide",
+            "stat_label": "Delivery",
+            "stat_sublabel": "Fast turnaround"
+          }
+        }
+      },
+      "block_order": [
+        "stat_6r9zcf",
+        "stat_JfVihV",
+        "stat_UPimwj",
+        "stat_Qcka4N"
+      ],
+      "name": "Industrial Precision",
+      "settings": {
+        "color_scheme": "light",
+        "eyebrow": "Engineered Workwear Standards // Est. 2012",
+        "heading_line_1": "Industrial",
+        "heading_line_2": "Precision",
+        "accent_line": "none",
+        "description": "Every garment printed in-house on industrial-grade equipment. No outsourcing. No compromise. Just precision, at scale.",
+        "cta_label": "Shop All Products",
+        "cta_link": "",
+        "show_spec_badge": true,
+        "spec_line_1": "Spec. Index: IP-2024",
+        "spec_line_2": "Verification: Confirmed",
+        "section_padding": 80
+      }
+    },
+    "ew_how_it_works_bXfnjk": {
+      "type": "ew-how-it-works",
+      "blocks": {
+        "step_ibaD76": {
+          "type": "step",
+          "settings": {
+            "step_number": "01",
+            "icon": "apparel",
+            "step_title": "Pick Your Garment",
+            "step_description": "Browse our massive range of premium basics and industrial workwear."
+          }
+        },
+        "step_DnbPEE": {
+          "type": "step",
+          "settings": {
+            "step_number": "02",
+            "icon": "upload_file",
+            "step_title": "Upload Your Logo",
+            "step_description": "Upload your PDF or high-res PNG. Our team checks every file for precision."
+          }
+        },
+        "step_mV4irx": {
+          "type": "step",
+          "settings": {
+            "step_number": "03",
+            "icon": "precision_manufacturing",
+            "step_title": "We Print & Deliver",
+            "step_description": "In-house industrial printing with rapid turnaround Australia-wide."
+          }
+        }
+      },
+      "block_order": [
+        "step_ibaD76",
+        "step_DnbPEE",
+        "step_mV4irx"
+      ],
+      "name": "EW How It Works",
+      "settings": {
+        "heading": "Engineered For Ease"
       }
     },
     "related-products": {
       "type": "related-products",
       "settings": {
         "heading": "YOU MAY ALSO LIKE",
-        "heading_size": "h1",
+        "heading_size": "h2",
         "products_to_show": 4,
         "columns_desktop": 4,
         "columns_mobile": "2",
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-3",
         "image_ratio": "portrait",
         "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
-        "padding_top": 0,
+        "padding_top": 44,
         "padding_bottom": 40
       }
     }
   },
   "order": [
     "main",
+    "ew_industrial_precision_9a7kVU",
+    "ew_how_it_works_bXfnjk",
     "related-products"
   ]
 }

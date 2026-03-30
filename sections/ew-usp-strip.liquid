@@ -1,10 +1,13 @@
 <!-- EveryWear: USP Strip Section -->
+ {%  comment  %} 
+ {% if block == section.blocks.last %}justify-end{%endif%} {% if block != section.blocks.first and block != section.blocks.last %}justify-center{%endif%}
+{% endcomment %}
 <section class="py-6 border-y" style="background-color: #1a1c1c; border-color: rgba(156,63,0,0.25);">
   <div class="max-w-screen-2xl mx-auto px-8">
     <div class="grid grid-cols-2 md:grid-cols-4 gap-8 ew-stagger">
       {%- for block in section.blocks -%}
         <div
-          class="ew-reveal flex items-center space-x-4 group"
+          class="ew-reveal flex items-center justify-center space-x-4 group"
           {{ block.shopify_attributes }}
         >
           <span
